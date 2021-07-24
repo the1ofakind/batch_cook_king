@@ -1,3 +1,7 @@
+import 'package:batch_cook_king/common/icon_field.dart';
+import 'package:batch_cook_king/common/my_icon_button.dart';
+import 'package:batch_cook_king/dashboard.dart';
+import 'package:batch_cook_king/presentation/flutter_icon_icons.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -41,117 +45,66 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Column(
                       children: [
                         Flexible(
-                            child: Column(
-                          children: [
-                            Flexible(
-                                flex: 4,
-                                child: Row(
-                                  children: const <Widget>[
-                                    Flexible(
-                                        child: TextField(
-                                      decoration: InputDecoration(
-                                          labelText: 'Pseudo',
-                                          border: InputBorder.none,
-                                          focusedBorder: InputBorder.none,
-                                          enabledBorder: InputBorder.none,
-                                          errorBorder: InputBorder.none,
-                                          disabledBorder: InputBorder.none,
-                                          icon: Icon(
-                                            Icons.person,
-                                            color: Colors.black,
-                                          )),
-                                      keyboardType: TextInputType.name,
-                                    ))
-                                  ],
-                                )),
-                            const Flexible(
-                                child: Divider(
-                              height: 500,
-                              thickness: 2,
-                              color: Colors.blueGrey,
-                            )),
-                          ],
-                        )),
+                            child: IconField(
+                                label: 'pseudonyme',
+                                iconName: Icons.person,
+                                iconColor: Colors.black,
+                                keyboardType: TextInputType.name)),
                         Flexible(
-                            child: Column(
-                          children: [
-                            Flexible(
-                                flex: 4,
-                                child: Row(
-                                  children: const <Widget>[
-                                    Flexible(
-                                        child: TextField(
-                                      decoration: InputDecoration(
-                                          labelText: 'johndoe@mail.com',
-                                          border: InputBorder.none,
-                                          focusedBorder: InputBorder.none,
-                                          enabledBorder: InputBorder.none,
-                                          errorBorder: InputBorder.none,
-                                          disabledBorder: InputBorder.none,
-                                          icon: Icon(
-                                            Icons.mail,
-                                            color: Colors.black,
-                                          )),
-                                      keyboardType: TextInputType.emailAddress,
-                                    ))
-                                  ],
-                                )),
-                            const Flexible(
-                                child: Divider(
-                              height: 500,
-                              thickness: 2,
-                              color: Colors.blueGrey,
-                            )),
-                          ],
-                        )),
+                            child: IconField(
+                                label: 'johndoe@mail.com',
+                                iconName: Icons.mail,
+                                iconColor: Colors.black,
+                                keyboardType: TextInputType.emailAddress)),
                         Flexible(
-                            child: Column(
-                          children: [
-                            Flexible(
-                                flex: 4,
-                                child: Row(
-                                  children: const <Widget>[
-                                    Flexible(
-                                        child: TextField(
-                                      decoration: InputDecoration(
-                                          labelText: 'Mot de passe',
-                                          border: InputBorder.none,
-                                          focusedBorder: InputBorder.none,
-                                          enabledBorder: InputBorder.none,
-                                          errorBorder: InputBorder.none,
-                                          disabledBorder: InputBorder.none,
-                                          icon: Icon(
-                                            Icons.lock,
-                                            color: Colors.black,
-                                          )),
-                                      keyboardType: TextInputType.emailAddress,
-                                    ))
-                                  ],
-                                )),
-                            const Flexible(
-                                child: Divider(
-                              height: 500,
-                              thickness: 2,
-                              color: Colors.blueGrey,
-                            )),
-                          ],
-                        )),
+                            child: IconField(
+                                label: 'Mot de passe',
+                                iconName: Icons.lock,
+                                iconColor: Colors.black,
+                                keyboardType: TextInputType.emailAddress)),
                       ],
                     ),
                   )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    fit: FlexFit.tight,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(primary: Colors.blue),
+                      onPressed: () {
+                        Navigator.push<MaterialPageRoute<dynamic>>(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const Dashboard();
+                        }));
+                      },
+                      child: const Text('Connexion'),
+                    ),
+                  )
+                ],
+              ),
               Flexible(
                   flex: 4,
-                  child: Container(
-                      child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(30)),
-                    child: Icon(
-                      Icons.facebook,
-                      size: 50,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 50),
+                    child: Row(
+                      children: [
+                        Flexible(
+                            fit: FlexFit.tight,
+                            child: MyIconButton(
+                                icon: FlutterIcon.google, onPressed: () {})),
+                        Flexible(
+                            fit: FlexFit.tight,
+                            child: MyIconButton(
+                                icon: FlutterIcon.twitter, onPressed: () {})),
+                        Flexible(
+                          fit: FlexFit.tight,
+                          child: MyIconButton(
+                              icon: FlutterIcon.facebook, onPressed: () {}),
+                        )
+                      ],
                     ),
-                    onPressed: () {},
-                  ))),
+                  )),
             ],
           ),
         ));
