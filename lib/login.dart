@@ -43,24 +43,27 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                     child: Column(
-                      children: [
+                      children: const <Widget>[
                         Flexible(
                             child: IconField(
                                 label: 'pseudonyme',
                                 iconName: Icons.person,
-                                iconColor: Colors.black,
+                                keyboardType: TextInputType.name)),
+                        Flexible(
+                            child: IconField(
+                                label: 'pseudonyme',
+                                iconName: Icons.person,
+                                iconColor: Colors.blue,
                                 keyboardType: TextInputType.name)),
                         Flexible(
                             child: IconField(
                                 label: 'johndoe@mail.com',
                                 iconName: Icons.mail,
-                                iconColor: Colors.black,
                                 keyboardType: TextInputType.emailAddress)),
                         Flexible(
                             child: IconField(
                                 label: 'Mot de passe',
                                 iconName: Icons.lock,
-                                iconColor: Colors.black,
                                 keyboardType: TextInputType.emailAddress)),
                       ],
                     ),
@@ -96,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Flexible(
                             fit: FlexFit.tight,
                             child: MyIconButton(
-                                icon: FlutterIcon.twitter, onPressed: () {})),
+                                icon: FlutterIcon.attention, onPressed: () {})),
                         Flexible(
                           fit: FlexFit.tight,
                           child: MyIconButton(

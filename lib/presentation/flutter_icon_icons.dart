@@ -25,7 +25,7 @@ class FlutterIcon {
   static const _kFontFam = 'FlutterIcon';
   static const String? _kFontPkg = null;
 
-  static const IconData twitter_1 = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData chef = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData note = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData note_beamed = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData music = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -261,8 +261,15 @@ class FlutterIcon {
   static const IconData cc_zero = IconData(0xe8e9, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData cc_share = IconData(0xe8ea, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData cc_remix = IconData(0xe8eb, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData google = IconData(0xe8ec, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData logo_facebook = IconData(0xe8ed, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData qr_code__1_ = IconData(0xe8ec, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData plat = IconData(0xe8ed, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData liste_de_courses = IconData(0xe8ee, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData parametres = IconData(0xe8ef, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData livre_de_recettes = IconData(0xe8f0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData logo_facebook = IconData(0xe8f1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData google = IconData(0xe8f2, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData twitter_1 = IconData(0xe8f3, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData calendar_1 = IconData(0xe8f4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData github = IconData(0xf300, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData github_circled = IconData(0xf301, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData flickr = IconData(0xf303, fontFamily: _kFontFam, fontPackage: _kFontPkg);
