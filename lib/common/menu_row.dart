@@ -6,16 +6,19 @@ class MenuRow extends StatelessWidget {
       required this.colorRow,
       required this.iconName,
       this.iconColor = Colors.black,
-      required this.textLabel})
+      required this.textLabel,
+      required this.onPressed()})
       : super(key: key);
   final Color colorRow;
   final IconData iconName;
   final Color iconColor;
   final String textLabel;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: colorRow,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(primary: colorRow),
+      onPressed: onPressed,
       child: Row(
         children: <Widget>[
           Flexible(

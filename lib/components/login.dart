@@ -1,6 +1,8 @@
+import 'package:batch_cook_king/common/classic_button.dart';
 import 'package:batch_cook_king/common/icon_field.dart';
 import 'package:batch_cook_king/common/my_icon_button.dart';
-import 'package:batch_cook_king/dashboard.dart';
+import 'package:batch_cook_king/components/dashboard.dart';
+import 'package:batch_cook_king/components/test/recipe_with_list_wheel_scroll_view.dart';
 import 'package:batch_cook_king/presentation/flutter_icon_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -51,12 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                 keyboardType: TextInputType.name)),
                         Flexible(
                             child: IconField(
-                                label: 'pseudonyme',
-                                iconName: Icons.person,
-                                iconColor: Colors.blue,
-                                keyboardType: TextInputType.name)),
-                        Flexible(
-                            child: IconField(
                                 label: 'johndoe@mail.com',
                                 iconName: Icons.mail,
                                 keyboardType: TextInputType.emailAddress)),
@@ -68,23 +64,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   )),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    fit: FlexFit.tight,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.blue),
-                      onPressed: () {
-                        Navigator.push<MaterialPageRoute<dynamic>>(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const Dashboard();
-                        }));
-                      },
-                      child: const Text('Connexion'),
-                    ),
-                  )
-                ],
+              ClassicActionButton(
+                label: 'Connexion',
+                onPressed: () {
+                  Navigator.push<MaterialPageRoute<dynamic>>(context,
+                      MaterialPageRoute(builder: (context) {
+                    return const RecipeWithListWheelScrollView();
+                  }));
+                },
               ),
               Flexible(
                   flex: 4,
@@ -99,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Flexible(
                             fit: FlexFit.tight,
                             child: MyIconButton(
-                                icon: FlutterIcon.attention, onPressed: () {})),
+                                icon: FlutterIcon.twitter, onPressed: () {})),
                         Flexible(
                           fit: FlexFit.tight,
                           child: MyIconButton(

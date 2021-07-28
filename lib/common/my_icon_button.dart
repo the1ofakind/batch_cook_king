@@ -4,7 +4,7 @@ class MyIconButton extends StatelessWidget {
   const MyIconButton(
       {Key? key,
       required this.icon,
-      this.color = Colors.black,
+      this.color = Colors.blueAccent,
       required this.onPressed()})
       : super(key: key);
   final IconData icon;

@@ -1,7 +1,7 @@
-import 'package:batch_cook_king/dashboard.dart';
+import 'package:batch_cook_king/components/dashboard.dart';
 import 'package:flutter/material.dart';
-import '../login.dart';
+import '../components/login.dart';
 
 void main() {
-  runApp(const Dashboard());
+  runApp(const Login());
 }
