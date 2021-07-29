@@ -25,10 +25,6 @@ class IconField extends StatelessWidget {
               decoration: InputDecoration(
                   labelText: label,
                   border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
                   icon: Icon(
                     iconName,
                     color: iconColor,
@@ -37,7 +33,6 @@ class IconField extends StatelessWidget {
             )),
             const Flexible(
                 child: Divider(
-              height: 500,
               thickness: 2,
               color: Colors.blueGrey,
             ))

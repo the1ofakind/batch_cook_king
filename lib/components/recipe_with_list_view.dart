@@ -1,5 +1,6 @@
 import 'package:batch_cook_king/common/classic_button.dart';
 import 'package:batch_cook_king/components/dashboard.dart';
+import 'package:batch_cook_king/components/recipe_detail.dart';
 import 'package:flutter/material.dart';
 
 class RecipeWithListview extends StatelessWidget {
@@ -18,7 +19,6 @@ class RecipeWithListview extends StatelessWidget {
 
 class MyRecipeWithListview extends StatefulWidget {
   const MyRecipeWithListview({Key? key}) : super(key: key);
-
   @override
   _MyRecipeWithListviewState createState() => _MyRecipeWithListviewState();
 }
@@ -37,7 +37,7 @@ class _MyRecipeWithListviewState extends State<MyRecipeWithListview> {
             padding: const EdgeInsets.all(15),
             child: Column(
               children: [
-                Flexible(flex: 10, child: _buildListView()),
+                Flexible(flex: 10, child: _buildListView(context)),
                 Flexible(
                   fit: FlexFit.tight,
                   child: Padding(
@@ -59,46 +59,44 @@ class _MyRecipeWithListviewState extends State<MyRecipeWithListview> {
   }
 }
 
-Widget _buildListView() {
+Widget _buildListView(BuildContext context) {
   return Scrollbar(
       child: ListView.builder(
-          itemCount: 10,
+          itemCount: 5,
           itemBuilder: (_, index) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 30),
+              padding: const EdgeInsets.only(bottom: 25, right: 25, left: 25),
               child: Row(
                 children: <Widget>[
                   Flexible(
-                      flex: 8,
                       child: Column(
-                        children: <Widget>[
-                          Image.asset('assets/images/plat1.jpg'),
-                          Container(
-                            color: Colors.white,
-                            width: 400,
-                            child: const Padding(
-                              padding: EdgeInsets.all(10),
-                              child: Text('Boulette de viande au fromage Kiri'),
+                    children: <Widget>[
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.all(0),
+                              primary: Colors.white),
+                          onPressed: () {
+                            Navigator.push<MaterialPageRoute<dynamic>>(context,
+                                MaterialPageRoute(builder: (context) {
+                              return RecipeDetails(index: index);
+                            }));
+                          },
+                          child: Hero(
+                            tag: 'test$index',
+                            child: Image.asset(
+                              'assets/images/plat${index + 1}.jpg',
                             ),
-                          )
-                        ],
-                      )),
-                  const Spacer(),
-                  Flexible(
-                      flex: 8,
-                      child: Column(
-                        children: <Widget>[
-                          Image.asset('assets/images/plat1.jpg'),
-                          Container(
-                            color: Colors.white,
-                            width: 400,
-                            child: const Padding(
-                              padding: EdgeInsets.all(10),
-                              child: Text('Boulette de viande au fromage Kiri'),
-                            ),
-                          )
-                        ],
-                      )),
+                          )),
+                      Container(
+                        color: Colors.white,
+                        width: 400,
+                        child: const Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Text('Boulette de viande au fromage Kiri'),
+                        ),
+                      )
+                    ],
+                  )),
                 ],
               ),
             );

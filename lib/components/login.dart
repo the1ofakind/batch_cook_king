@@ -1,8 +1,9 @@
 import 'package:batch_cook_king/common/classic_button.dart';
 import 'package:batch_cook_king/common/icon_field.dart';
 import 'package:batch_cook_king/common/my_icon_button.dart';
-import 'package:batch_cook_king/components/dashboard.dart';
-import 'package:batch_cook_king/components/test/recipe_with_list_wheel_scroll_view.dart';
+// import 'package:batch_cook_king/components/dashboard.dart';
+import 'package:batch_cook_king/components/recipe_with_list_view.dart';
+// import 'package:batch_cook_king/components/test/recipe_with_list_wheel_scroll_view.dart';
 import 'package:batch_cook_king/presentation/flutter_icon_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               const Spacer(),
               Flexible(
-                  flex: 6,
+                  flex: 10,
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                     child: Column(
@@ -69,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.push<MaterialPageRoute<dynamic>>(context,
                       MaterialPageRoute(builder: (context) {
-                    return const RecipeWithListWheelScrollView();
+                    return const RecipeWithListview();
                   }));
                 },
               ),

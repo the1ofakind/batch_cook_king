@@ -40,6 +40,10 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/plat1.jpg
+    - assets/images/plat2.jpg
+    - assets/images/plat3.jpg
+    - assets/images/plat4.jpg
+    - assets/images/plat5.jpg
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
