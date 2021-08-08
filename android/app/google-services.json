@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "828719322234",
+    "firebase_url": "https://batch-cook-king-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "batch-cook-king",
+    "storage_bucket": "batch-cook-king.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828719322234:android:6f80c5f745dd1d3b26d7c3",
+        "android_client_info": {
+          "package_name": "com.batch_cook_king"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828719322234-u46td6csc7cqg8s89bdfqtac8pphjd9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-leiBX3NOkFgYK_EzSYaeOjBQLWB-E7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828719322234-u46td6csc7cqg8s89bdfqtac8pphjd9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
