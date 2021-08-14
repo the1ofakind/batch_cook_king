@@ -10,7 +10,7 @@ class RecipeDetails extends StatefulWidget {
       : super(key: key);
   final Color backGroundcolor;
   final Color textColor;
-  final data;
+  final dynamic data;
   final String tag;
 
   @override
@@ -20,6 +20,8 @@ class RecipeDetails extends StatefulWidget {
 class _RecipeDetailsState extends State<RecipeDetails> {
   @override
   Widget build(BuildContext context) {
+    // getPathImage().then((value) => print(value));
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -38,8 +40,8 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                       foregroundDecoration: BoxDecoration(
                           image: DecorationImage(
                               image: Image.asset(
-                                'assets/images/${widget.data['image']}.jpg',
-                              ).image,
+                                      'assets/images/${widget.data['image']}.jpg')
+                                  .image,
                               fit: BoxFit.cover)),
                     ),
                   )),
@@ -93,9 +95,13 @@ class _RecipeDetailsState extends State<RecipeDetails> {
             )));
   }
 
+  // getPathImage() async {
+  //   return await Directory('../../assets/images/plat1.jpg').exists();
+  // }
+
   List<Widget> getInfo() {
     final getInfo = <Widget>[];
-    widget.data['infos'].forEach((value) {
+    widget.data['infos'].forEach((dynamic value) {
       getInfo.add(Flexible(
           fit: FlexFit.tight,
           child: Column(
@@ -140,7 +146,7 @@ class _RecipeDetailsState extends State<RecipeDetails> {
 
   List<Widget> getIngredient() {
     final getIngredient = <Widget>[];
-    widget.data['ingredients'].forEach((value) {
+    widget.data['ingredients'].forEach((dynamic value) {
       getIngredient.add(Padding(
         padding: const EdgeInsets.all(5),
         child: Container(
@@ -185,7 +191,7 @@ class _RecipeDetailsState extends State<RecipeDetails> {
 
   List<Widget> getComments() {
     final getComments = <Widget>[];
-    widget.data['commentaires'].forEach((value) {
+    widget.data['commentaires'].forEach((dynamic value) {
       getComments.add(Padding(
         padding: const EdgeInsets.all(5),
         child: Container(

@@ -1,22 +1,24 @@
-import 'dart:math';
-
 import 'package:batch_cook_king/common/classic_button.dart';
-import 'package:batch_cook_king/components/dashboard.dart';
 import 'package:batch_cook_king/components/recipe_detail.dart';
-import 'package:batch_cook_king/model/recipe_model.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
+final DatabaseReference _dataBaseRef = FirebaseDatabase(
+        databaseURL:
+            'https://batch-cook-king-default-rtdb.europe-west1.firebasedatabase.app')
+    .reference()
+    .child('plat');
+
 class RecipeWithListview extends StatefulWidget {
   const RecipeWithListview({Key? key}) : super(key: key);
-
   @override
   _RecipeWithListviewState createState() => _RecipeWithListviewState();
 }
 
 class _RecipeWithListviewState extends State<RecipeWithListview> {
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,12 +47,6 @@ class MyRecipeWithListview extends StatefulWidget {
 }
 
 class _MyRecipeWithListviewState extends State<MyRecipeWithListview> {
-  final DatabaseReference _dataBaseRef = FirebaseDatabase(
-          databaseURL:
-              'https://batch-cook-king-default-rtdb.europe-west1.firebasedatabase.app')
-      .reference()
-      .child('plat');
-
   // _testRef.get();
   // ignore: cascade_invocations
   // _dataBaseRef.child('plat1').set('plat1')';
@@ -63,27 +59,6 @@ class _MyRecipeWithListviewState extends State<MyRecipeWithListview> {
 
   @override
   Widget build(BuildContext context) {
-    // _dataBaseRef.push().set({
-    //   'image': 'plat3',
-    //   'nom': 'Boulette de viande au fromage Kiri',
-    //   'infos': [
-    //     {'data': '18h', 'unite': 'vu il y a'},
-    //     {'data': '5', 'unite': 'minute'},
-    //     {'data': '900', 'unite': 'Kcal'}
-    //   ],
-    //   'ingredients': [
-    //     {'nom': 'Sauce Tomate', 'quantite': '200', 'unite': 'g'},
-    //     {'nom': 'Lait', 'quantite': '400', 'unite': 'ml'},
-    //     {'nom': 'Kiri', 'quantite': '6', 'unite': '/'},
-    //   ],
-    //   'commentaires': [
-    //     {
-    //       'texte':
-    //           'Attention mettre le  four à 180°C et pas à 200°C sinon ça colle et cest relou !'
-    //     },
-    //     {'texte': 'Attention Pas trop en manger parce que ça fait grossir !'},
-    //   ],
-    // });
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -100,13 +75,12 @@ class _MyRecipeWithListviewState extends State<MyRecipeWithListview> {
                     child: StreamBuilder(
                         stream: _dataBaseRef.onValue,
                         builder: (context, snapshot) {
-                          var nextRecipe;
                           final listViewItem = <Widget>[];
                           if (snapshot.hasData) {
                             final myRecipe = Map<String, dynamic>.from(
                                 (snapshot.data! as Event).snapshot.value);
+                            // ignore: cascade_invocations
                             myRecipe.forEach((key, value) {
-                              nextRecipe = Map<String, dynamic>.from(value);
                               listViewItem
                                   .add(_getRowListView(context, value, key));
                             });
@@ -117,18 +91,13 @@ class _MyRecipeWithListviewState extends State<MyRecipeWithListview> {
                             ),
                           );
                         })),
-                Flexible(
+                const Flexible(
                   fit: FlexFit.tight,
                   child: Padding(
-                      padding: const EdgeInsets.all(8),
+                      padding: EdgeInsets.all(8),
                       child: ClassicActionButton(
                         label: 'Ajouter un plat',
-                        onPressed: () {
-                          Navigator.push<MaterialPageRoute<dynamic>>(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const Dashboard();
-                          }));
-                        },
+                        onPressed: addItem,
                       )),
                 )
               ],
@@ -138,7 +107,7 @@ class _MyRecipeWithListviewState extends State<MyRecipeWithListview> {
   }
 }
 
-Widget _getRowListView(BuildContext context, infoRecipe, key) {
+Widget _getRowListView(BuildContext context, dynamic infoRecipe, dynamic key) {
   // StreamBuilder(stream: _dataBaseRef.child('test'),)
   return Padding(
     padding: const EdgeInsets.only(bottom: 25, right: 10, left: 10),
@@ -166,7 +135,7 @@ Widget _getRowListView(BuildContext context, infoRecipe, key) {
               color: Colors.white,
               width: 400,
               child: Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Text(infoRecipe['nom']),
               ),
             )
@@ -175,4 +144,28 @@ Widget _getRowListView(BuildContext context, infoRecipe, key) {
       ],
     ),
   );
+}
+
+void addItem() {
+  _dataBaseRef.push().set({
+    'image': 'plat5',
+    'nom': 'Boulette de viande au fromage Kiri',
+    'infos': [
+      {'data': '18h', 'unite': 'vu il y a'},
+      {'data': '5', 'unite': 'minute'},
+      {'data': '900', 'unite': 'Kcal'}
+    ],
+    'ingredients': [
+      {'nom': 'Sauce Tomate', 'quantite': '200', 'unite': 'g'},
+      {'nom': 'Lait', 'quantite': '400', 'unite': 'ml'},
+      {'nom': 'Kiri', 'quantite': '6', 'unite': '/'},
+    ],
+    'commentaires': [
+      {
+        'texte':
+            'Attention mettre le  four à 180°C et pas à 200°C sinon ça colle et cest relou !'
+      },
+      {'texte': 'Attention Pas trop en manger parce que ça fait grossir !'},
+    ],
+  });
 }
