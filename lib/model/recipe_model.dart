@@ -14,7 +14,7 @@ class RecipeModel {
   // final List<String> coms;
 
   RecipeModel getjson() {
-    const RecipeModel user = RecipeModel(recipeName: 'lololllllmmpp');
+    const RecipeModel user = RecipeModel(recipeName: '');
     return user;
   }
 }
